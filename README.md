@@ -2,6 +2,9 @@
 
 7Segment is a simple tool that lets you quickly generate the codes for numbers, letters, and special characters used in 7-segment displays. No more manual calculations — just click to draw the character and instantly copy the code into your project. Save time, avoid errors, and enjoy coding!
 
+I’d be happy to get your tips and feedback to improve the tool and fix any issues.  
+I’m also working on adding more features in the future, such as support for 14-segment and 16-segment displays, and maybe even LED matrix displays.
+
 ## Live Demo
 Try it directly in your browser: [7Segment Code Generator](https://sss-zare.github.io/7Segment/)
 
