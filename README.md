@@ -51,3 +51,31 @@ Customize the visual color of your 7-segment display.
 This option only affects how the segments look on screen and does **not** change the generated codes or functionality.  
 Choose your favorite color for a more enjoyable experience!
 
+
+/* 
+    BIT ORDER HELP
+
+    + LSBFIRST (Most Significant Bit)
+    
+             MSB                         LSB
+              ↓                           ↓
+            ┌───┬───┬───┬───┬───┬───┬───┬───┐
+            │ A │ B │ C │ D │ E │ F │ G │DP │ ─→─┐
+            └───┴───┴───┴───┴───┴───┴───┴───┘    ↓ 
+        ┌──←────←────←────←────←────←────←────←──┘
+        ↓   ┌───┬───┬───┬───┬───┬───┬───┬───┐
+        └─→ │Q0 │Q1 │Q2 │Q3 │Q4 │Q5 │Q6 │Q7 │ ─→ STORAGE REGISTER
+            └───┴───┴───┴───┴───┴───┴───┴───┘
+
+    + MSBFIRST (Least Significant Bit)
+
+             MSB                         LSB
+              ↓                           ↓
+            ┌───┬───┬───┬───┬───┬───┬───┬───┐
+        ┌─← │DP │ G │ F │ E │ D │ C │ B │ A │
+        ↓   └───┴───┴───┴───┴───┴───┴───┴───┘
+        │    
+        ↓   ┌───┬───┬───┬───┬───┬───┬───┬───┐
+        └─→ │Q0 │Q1 │Q2 │Q3 │Q4 │Q5 │Q6 │Q7 │ ─→ STORAGE REGISTER
+            └───┴───┴───┴───┴───┴───┴───┴───┘
+*/
