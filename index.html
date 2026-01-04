@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>7-Segment Display</title>
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="bg-light">
+
+    <div class="container-xl container-xxl">
+
+        <div class="row">
+
+            <!-- Main Content -->
+            <div class="col-12 col-sm-8 col-md-8 col-lg-9 col-xl-9 col-xxl-9 d-md-flex my-md-3 border rounded bg-color11">
+
+                <div class="row flex-fill">
+
+                    <!-- 7-Segment Display -->
+                    <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 col-xxl-4" style="border-right:solid 1px #dee2e6;">
+
+                        <!-- 7-Segment Display Header -->
+                        <div class="row pt-3">
+                            <div class="col-12">
+                                <label><i data-feather="chevrons-right" class="me-1"></i>7-Segment Display</label>
+                            </div>
+                        </div>
+
+                        <!-- 7-Segment Display Design -->
+                        <div class="row pt-3">
+
+                            <div class="col-12 justify-content-center">
+
+                                <svg xmlns="http://www.w3.org/2000/svg" id="sevenSegmentDisplay" x="0" y="0" viewBox="0 0 35.76 53.97" class="svg-display">
+                                    <path id="surface" class="surface" fill="#2c2e32" d="M.06.06h35.65v53.86H.06z" />
+                                    <path id="segment_a" class="segment" fill="#9b9b9b" data-state="off" data-value="0" d="M12.36 10.97H26.1l.58-4.11H12.94z" />
+                                    <path id="segment_b" class="segment" fill="#9b9b9b" data-state="off" data-value="0" d="M28.63 26.56 31.1 9.04c.15-1.05-.58-2.01-1.63-2.16-.09-.01-.18-.02-.27-.02h-1.66l-2.46 17.49 1.77 2.21h1.78z" />
+                                    <path id="segment_c" class="segment" fill="#9b9b9b" data-state="off" data-value="0" d="M26.81 27.41h1.71l-2.54 18.05c-.13.94-.94 1.65-1.89 1.65h-2.2l2.45-17.4 2.47-2.3z" />
+                                    <path id="segment_d" class="segment" fill="#9b9b9b" data-state="off" data-value="0" d="M7.86 43H21.6l-.58 4.11H7.28z" />
+                                    <path id="segment_e" class="segment" fill="#9b9b9b" data-state="off" data-value="0" d="M6.42 47.11H4.76c-.09 0-.18-.01-.27-.02a1.908 1.908 0 0 1-1.63-2.16l2.46-17.52h1.79l1.77 2.21-2.46 17.49z" />
+                                    <path id="segment_f" class="segment" fill="#9b9b9b" data-state="off" data-value="0" d="M5.45 26.56 7.99 8.51c.13-.94.94-1.65 1.89-1.65h2.2l-2.45 17.4-2.48 2.3h-1.7z" />
+                                    <path id="segment_g" class="segment" fill="#9b9b9b" data-state="off" data-value="0" d="m7.9 27.03 2.27-2.1h14.28l1.61 2.01-2.26 2.1H9.51z" />
+                                    <path id="segment_dp" class="segment" fill="#9b9b9b" data-state="off" data-value="0" d="M28.03 45.06c0-1.14.92-2.06 2.06-2.06s2.06.92 2.06 2.06-.92 2.06-2.06 2.06-2.06-.93-2.06-2.06z" />
+                                </svg>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Internal Circuit Diagram / Binary Code / Hexadecimal Code  -->
+                    <div class="col-12 col-sm-12 col-md-8 col-lg-8 col-xl-8 col-xxl-8 h-md-100">
+
+                        <!-- Internal Circuit Diagram Header -->
+                        <div class="row pt-3">
+                            <div class="col-12">
+                                <label><i data-feather="chevrons-right" class="me-1"></i>Internal Circuit Diagram</label>
+                            </div>
+                        </div>
+
+
+                        <!-- Internal Circuit Diagram Design -->
+                        <div class="row">
+
+                            <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-11 col-xxl-10 mx-auto justify-content-center">
+        
+                                <svg xmlns="http://www.w3.org/2000/svg" id="internalCircuitDiagram" x="0px" y="0px" viewBox="0 0 466 258" class="svg-circuit">
+
+                                    <g>
+                                        <circle class="led-light" cx="23" cy="133.69" r="22" data-state="off" opacity="0"/>
+                                        <path class="led" fill="#2c2e32" data-state="off" d="M37,124.69v-1c0-0.55-0.45-1-1-1H24.5v-9h-3v9H10c-0.55,0-1,0.45-1,1v1c0,0.55,0.45,1,1,1h10.22L9.24,142.47
+                                            c-0.63,0.96,0.08,2.22,1.26,2.22H21.5v9h3v-9h11.01c1.17,0,1.89-1.26,1.26-2.22l-10.98-16.78H36C36.55,125.69,37,125.24,37,124.69z"/>    
+                                    </g>
+                                    <g>
+                                        <circle class="led-light" cx="83" cy="133.69" r="22" data-state="off" opacity="0"/>
+                                        <path class="led" fill="#2c2e32" data-state="off" d="M97,124.69v-1c0-0.55-0.45-1-1-1H84.5v-9h-3v9H70c-0.55,0-1,0.45-1,1v1c0,0.55,0.45,1,1,1h10.22l-10.98,16.78
+                                            c-0.63,0.96,0.08,2.22,1.26,2.22H81.5v9h3v-9h11.01c1.17,0,1.89-1.26,1.26-2.22l-10.98-16.78H96C96.55,125.69,97,125.24,97,124.69z"/>
+                                    </g>
+                                    <g>
+                                        <circle class="led-light" cx="143" cy="133.69" r="22" data-state="off" opacity="0"/>
+                                        <path id="led_c" class="led" fill="#2c2e32" data-state="off" d="M157,124.69v-1c0-0.55-0.45-1-1-1h-11.5v-9h-3v9H130c-0.55,0-1,0.45-1,1v1c0,0.55,0.45,1,1,1h10.22
+                                            l-10.98,16.78c-0.63,0.96,0.08,2.22,1.26,2.22h11.01v9h3v-9h11.01c1.17,0,1.89-1.26,1.26-2.22l-10.98-16.78H156
+                                            C156.55,125.69,157,125.24,157,124.69z"/>
+                                    </g>
+                                    <g>
+                                        <circle class="led-light" cx="203" cy="133.69" r="22" data-state="off" opacity="0"/>
+                                        <path class="led" fill="#2c2e32" data-state="off" d="M217,124.69v-1c0-0.55-0.45-1-1-1h-11.5v-9h-3v9H190c-0.55,0-1,0.45-1,1v1c0,0.55,0.45,1,1,1h10.22
+                                            l-10.98,16.78c-0.63,0.96,0.08,2.22,1.26,2.22h11.01v9h3v-9h11.01c1.17,0,1.89-1.26,1.26-2.22l-10.98-16.78H216
+                                            C216.55,125.69,217,125.24,217,124.69z"/>
+                                    </g>
+                                    <g>
+                                        <circle class="led-light" cx="263" cy="133.69" r="22" data-state="off" opacity="0"/>
+                                        <path class="led" fill="#2c2e32" data-state="off" d="M277,124.69v-1c0-0.55-0.45-1-1-1h-11.5v-9h-3v9H250c-0.55,0-1,0.45-1,1v1c0,0.55,0.45,1,1,1h10.22
+                                            l-10.98,16.78c-0.63,0.96,0.08,2.22,1.26,2.22h11.01v9h3v-9h11.01c1.17,0,1.89-1.26,1.26-2.22l-10.98-16.78H276
+                                            C276.55,125.69,277,125.24,277,124.69z"/>
+                                    </g>
+                                    <g>
+                                        <circle class="led-light" cx="323" cy="133.69" r="22" data-state="off" opacity="0"/>
+                                        <path class="led" fill="#2c2e32" data-state="off" d="M337,124.69v-1c0-0.55-0.45-1-1-1h-11.5v-9h-3v9H310c-0.55,0-1,0.45-1,1v1c0,0.55,0.45,1,1,1h10.22
+                                            l-10.98,16.78c-0.63,0.96,0.08,2.22,1.26,2.22h11.01v9h3v-9h11.01c1.17,0,1.89-1.26,1.26-2.22l-10.98-16.78H336
+                                            C336.55,125.69,337,125.24,337,124.69z"/>
+                                    </g>
+                                    <g>
+                                        <circle class="led-light" cx="383" cy="133.69" r="22" data-state="off" opacity="0"/>
+                                        <path class="led" fill="#2c2e32" data-state="off" d="M397,124.69v-1c0-0.55-0.45-1-1-1h-11.5v-9h-3v9H370c-0.55,0-1,0.45-1,1v1c0,0.55,0.45,1,1,1h10.22
+                                            l-10.98,16.78c-0.63,0.96,0.08,2.22,1.26,2.22h11.01v9h3v-9h11.01c1.17,0,1.89-1.26,1.26-2.22l-10.98-16.78H396
+                                            C396.55,125.69,397,125.24,397,124.69z"/>
+                                    </g>
+                                    <g>
+                                        <circle class="led-light" cx="443" cy="133.69" r="22" data-state="off" opacity="0"/>
+                                        <path class="led" fill="#2c2e32" data-state="off" d="M457,124.69v-1c0-0.55-0.45-1-1-1h-11.5v-9h-3v9H430c-0.55,0-1,0.45-1,1v1c0,0.55,0.45,1,1,1h10.22
+                                            l-10.98,16.78c-0.63,0.96,0.08,2.22,1.26,2.22h11.01v9h3v-9h11.01c1.17,0,1.89-1.26,1.26-2.22l-10.98-16.78H456
+                                            C456.55,125.69,457,125.24,457,124.69z"/>
+                                    </g>
+                                    
+
+                                    <path id="net_a" class="net" fill="#2c2e32" d="M444.5,192.94v-39.25h-3v39.25c-2.02,0.64-3.5,2.51-3.5,4.75c0,2.76,2.24,5,5,5s5-2.24,5-5
+                                        C448,195.45,446.52,193.58,444.5,192.94z M443,200.19c-1.38,0-2.5-1.12-2.5-2.5c0-1.38,1.12-2.5,2.5-2.5s2.5,1.12,2.5,2.5 C445.5,199.07,444.38,200.19,443,200.19z"/>
+
+                                    <path id="net_b" class="net" fill="#2c2e32" d="M384.5,192.94v-39.25h-3v39.25c-2.02,0.64-3.5,2.51-3.5,4.75c0,2.76,2.24,5,5,5s5-2.24,5-5
+                                        C388,195.45,386.52,193.58,384.5,192.94z M383,200.19c-1.38,0-2.5-1.12-2.5-2.5c0-1.38,1.12-2.5,2.5-2.5s2.5,1.12,2.5,2.5 C385.5,199.07,384.38,200.19,383,200.19z"/>
+
+                                    <path id="net_c" class="net" fill="#2c2e32" d="M324.5,192.94v-39.25h-3v39.25c-2.02,0.64-3.5,2.51-3.5,4.75c0,2.76,2.24,5,5,5s5-2.24,5-5
+                                        C328,195.45,326.52,193.58,324.5,192.94z M323,200.19c-1.38,0-2.5-1.12-2.5-2.5c0-1.38,1.12-2.5,2.5-2.5s2.5,1.12,2.5,2.5 C325.5,199.07,324.38,200.19,323,200.19z"/>
+
+                                    <path id="net_d" class="net" fill="#2c2e32" d="M264.5,192.94v-39.25h-3v39.25c-2.02,0.64-3.5,2.51-3.5,4.75c0,2.76,2.24,5,5,5s5-2.24,5-5
+                                        C268,195.45,266.52,193.58,264.5,192.94z M263,200.19c-1.38,0-2.5-1.12-2.5-2.5c0-1.38,1.12-2.5,2.5-2.5s2.5,1.12,2.5,2.5 C265.5,199.07,264.38,200.19,263,200.19z"/>
+
+                                    <path id="net_e" class="net" fill="#2c2e32" d="M204.5,192.94v-39.25h-3v39.25c-2.02,0.64-3.5,2.51-3.5,4.75c0,2.76,2.24,5,5,5s5-2.24,5-5
+                                        C208,195.45,206.52,193.58,204.5,192.94z M203,200.19c-1.38,0-2.5-1.12-2.5-2.5c0-1.38,1.12-2.5,2.5-2.5s2.5,1.12,2.5,2.5 C205.5,199.07,204.38,200.19,203,200.19z"/>
+
+                                    <path id="net_f" class="net" fill="#2c2e32" d="M144.5,192.94v-39.25h-3v39.25c-2.02,0.64-3.5,2.51-3.5,4.75c0,2.76,2.24,5,5,5s5-2.24,5-5
+                                        C148,195.45,146.52,193.58,144.5,192.94z M143,200.19c-1.38,0-2.5-1.12-2.5-2.5c0-1.38,1.12-2.5,2.5-2.5s2.5,1.12,2.5,2.5 C145.5,199.07,144.38,200.19,143,200.19z"/>
+                                
+                                    <path id="net_g" class="net" fill="#2c2e32" d="M84.5,192.94v-39.25h-3v39.25c-2.02,0.64-3.5,2.51-3.5,4.75c0,2.76,2.24,5,5,5s5-2.24,5-5
+                                        C88,195.45,86.52,193.58,84.5,192.94z M83,200.19c-1.38,0-2.5-1.12-2.5-2.5c0-1.38,1.12-2.5,2.5-2.5s2.5,1.12,2.5,2.5 C85.5,199.07,84.38,200.19,83,200.19z"/>
+                                        
+                                    <path id="net_dp" class="net" fill="#2c2e32" d="M24.5,192.94v-39.25h-3v39.25c-2.02,0.64-3.5,2.51-3.5,4.75c0,2.76,2.24,5,5,5s5-2.24,5-5
+                                        C28,195.45,26.52,193.58,24.5,192.94z M23,200.19c-1.38,0-2.5-1.12-2.5-2.5c0-1.38,1.12-2.5,2.5-2.5s2.5,1.12,2.5,2.5 C25.5,199.07,24.38,200.19,23,200.19z"/>
+                                        
+                                    <path id="net_common" class="net net-common" fill="#2c2e32" d="M444,73.69h-2.5h-57h-3h-57h-3h-57h-3h-27V36.43c2.02-0.64,3.5-2.51,3.5-4.75c0-2.76-2.24-5-5-5s-5,2.24-5,5
+                                        c0,2.24,1.48,4.11,3.5,4.75v37.25h-27h-3h-57h-3h-57h-3h-57h-3v3v37h3v-37h57v37h3v-37h57v37h3v-37h57v37h3v-37h57v37h3v-37h57v37h3
+                                        v-37h57v37h3v-37h57v37h3v-40H444z M230.5,31.69c0-1.38,1.12-2.5,2.5-2.5s2.5,1.12,2.5,2.5c0,1.38-1.12,2.5-2.5,2.5 S230.5,33.07,230.5,31.69z"/>
+  
+                                    <text transform="matrix(1 0 0 1 023 226)" class="led-label" fill="#2c2e32" text-anchor="middle" data-state="off"></text> 
+                                    <text transform="matrix(1 0 0 1 083 226)" class="led-label" fill="#2c2e32" text-anchor="middle" data-state="off"></text>
+                                    <text transform="matrix(1 0 0 1 143 226)" class="led-label" fill="#2c2e32" text-anchor="middle" data-state="off"></text>
+                                    <text transform="matrix(1 0 0 1 203 226)" class="led-label" fill="#2c2e32" text-anchor="middle" data-state="off"></text>
+                                    <text transform="matrix(1 0 0 1 263 226)" class="led-label" fill="#2c2e32" text-anchor="middle" data-state="off"></text>
+                                    <text transform="matrix(1 0 0 1 323 226)" class="led-label" fill="#2c2e32" text-anchor="middle" data-state="off"></text>
+                                    <text transform="matrix(1 0 0 1 383 226)" class="led-label" fill="#2c2e32" text-anchor="middle" data-state="off"></text>
+                                    <text transform="matrix(1 0 0 1 443 226)" class="led-label" fill="#2c2e32" text-anchor="middle" data-state="off"></text>
+
+                                    <text transform="matrix(1 0 0 1 233 21)" class="led-common" fill="#2c2e32" text-anchor="middle" id="lblCommonLabel">GND</text>
+                                    <text transform="matrix(1 0 0 1 320 19)" class="led-common small" fill="#2c2e32" text-anchor="middle" id="lblCommonType">Common Cathode</text>
+                                </svg>
+        
+                            </div>
+        
+                        </div>
+
+
+                        <!-- Binary Code Header -->
+                        <div class="row">
+                            <div class="col-12">
+                                <label><i data-feather="chevrons-right" class="me-1"></i>Binary Code</label>
+                            </div>
+                        </div>
+
+
+                        <!-- Binary Code Design -->
+                        <div class="row pb-4 pt-1">
+
+                            <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-11 col-xxl-10 mx-auto px-xxl-3">
+        
+                                <div class="d-flex justify-content-between">
+                                    <div class="binary-wrapper">
+                                        <label for="txtBit7" class="form-label-custom text-muted">MSB</label> <!-- MSB -->
+                                        <input type="text" class="form-control text-center binary-input" id="txtBit0" readonly/>
+                                    </div>
+                                    <div class="binary-wrapper">
+                                        <label for="txtBit6" class="form-label-custom"></label>
+                                        <input type="text" class="form-control text-center binary-input" id="txtBit1" readonly/>
+                                    </div>
+                                    <div class="binary-wrapper">
+                                        <label for="txtBit5" class="form-label-custom"></label>
+                                        <input type="text" class="form-control text-center binary-input" id="txtBit2" readonly/>
+                                    </div>
+                                    <div class="binary-wrapper">
+                                        <label for="txtBit4" class="form-label-custom"></label>
+                                        <input type="text" class="form-control text-center binary-input" id="txtBit3" readonly/>
+                                    </div>
+                                    <div class="binary-wrapper">
+                                        <label for="txtBit3" class="form-label-custom"></label>
+                                        <input type="text" class="form-control text-center binary-input" id="txtBit4" readonly/>
+                                    </div>
+                                    <div class="binary-wrapper">
+                                        <label for="txtBit2" class="form-label-custom"></label>
+                                        <input type="text" class="form-control text-center binary-input" id="txtBit5" readonly/>
+                                    </div>
+                                    <div class="binary-wrapper">
+                                        <label for="txtBit1" class="form-label-custom"></label>
+                                        <input type="text" class="form-control text-center binary-input" id="txtBit6" readonly/>
+                                    </div>
+                                    <div class="binary-wrapper">
+                                        <label for="txtBit0" class="form-label-custom ms-1 text-muted">LSB</label> <!-- LSB -->
+                                        <input type="text" class="form-control text-center binary-input" id="txtBit7" readonly/>
+                                    </div>
+                                </div>
+        
+                            </div>
+        
+                        </div>
+
+
+                        <!-- Hexadecimal and Decimal Code Header -->
+                        <div class="row">
+                            <div class="col-12">
+                                <label><i data-feather="chevrons-right" class="me-1"></i>Hexadecimal and Decimal Code</label>
+                            </div>
+                        </div>
+
+
+                        <!-- Hexadecimal and Decimal Code Design -->
+                        <div class="row pb-4 pt-3">
+                            <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-11 col-xxl-10 mx-auto px-xxl-3">
+                                
+                                <div class="input-group mb-3 d-flex justify-content-between pb-2">
+                                    <span class="input-group-text">Hex Code &nbsp; &nbsp; &nbsp;</span>
+                                    <input type="text" class="form-control text-center hex-input" id="txtHexCode" readonly/>
+                                </div>
+
+                                <div class="input-group mb-3 d-flex justify-content-between">
+                                    <span class="input-group-text">Decimal Code</span>
+                                    <input type="text" class="form-control text-center hex-input" id="txtDecimalCode" readonly/>
+                                </div>
+                                  
+                            </div>
+                        </div>
+
+                        <!-- Copy Code Header -->
+                        <!-- <div class="row pb-3">
+                            <div class="col-12">
+                                <label><i data-feather="chevrons-right" class="me-1"></i>Copy code to clipboard</label>
+                            </div>
+                        </div> -->
+
+
+                        <!-- Copy Code Design -->
+                        <div class="row pb-4">
+
+                            <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-11 col-xxl-10 mx-auto px-xxl-3">
+        
+                                <div class="d-flex justify-content-center gap-2">
+                                    
+                                    <button type="button" class="btn btn-sm btn-dark w-100" id="btnBinaryCode"><i class="me-1" style="width: 20px; height: 20px;" data-feather="copy"></i>Copy Binary Code</button>
+                                    <button type="button" class="btn btn-sm btn-dark w-100" id="btnHexCode"><i class="me-1" style="width: 20px; height: 20px;" data-feather="copy"></i>Copy Hex Code</button>
+                                    <button type="button" class="btn btn-sm btn-dark w-100" id="btnDecimalCode"><i class="me-1" style="width: 20px; height: 20px;" data-feather="copy"></i>Copy Decimal Code</button>
+                                    
+                                </div>
+
+                            </div>
+        
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        
+            <!-- Sidebar -->
+            <div class="col-12 col-sm-4 col-md-4 col-lg-3 col-xl-3 col-xxl-3" id="sidebar">
+
+                <!-- 7-Segment Display Common Type -->
+                <fieldset class="border rounded bg-white p-3 my-3">
+                    
+                    <legend class="w-auto fs-6 text-muted"><i data-feather="cpu" class="me-2" ></i>Display Common Type</legend>
+                    <hr>
+
+                    <div class="list-group list-group-radio d-grid gap-2">
+                                
+                        <div class="position-relative">
+                            <input class="form-check-input position-absolute top-50 end-0 ms-3 fs-5" type="radio" name="commonTypes" id="rbCommonCathode" value="CommonCathode" checked>
+                            <label class="list-group-item py-3 ps-5" for="rbCommonCathode">
+                                <strong class="fw-semibold">Common Cathode</strong>
+                                <span class="d-block small opacity-75">Select Common Type → (CC)</span>
+                            </label>
+                        </div>
+
+                        <div class="position-relative">
+                            <input class="form-check-input position-absolute top-50 end-0 ms-3 fs-5" type="radio" name="commonTypes" id="rbCommonAnode" value="CommonAnode">
+                            <label class="list-group-item py-3 ps-5" for="rbCommonAnode">
+                                <strong class="fw-semibold">Common Anode</strong>
+                                <span class="d-block small opacity-75">Select Common Type → (CA)</span>
+                            </label>
+                        </div>
+
+                    </div>
+
+                </fieldset>
+
+                <!-- Bit Order (Shift Register) -->
+                <fieldset class="border rounded bg-white p-3 my-3">
+
+                    <legend class="w-auto fs-6 text-muted"><i data-feather="bold" class="me-2" ></i>Bit Order (Shift Register)</legend>
+                    <hr>
+
+                    <div class="d-flex justify-content-between ps-1 pe-4 active-colors">
+                       
+                        <div class="d-flex flex-column">
+
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="bitOrders" id="lsbFirst" checked>
+                                <label class="form-check-label" for="lsbFirst">LSB FIRST</label>
+                            </div>
+
+                        </div>
+
+                        <div class="d-flex flex-column">
+                            
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="bitOrders" id="msbFirst">
+                                <label class="form-check-label" for="msbFirst">MSB FIRST</label>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </fieldset>
+
+                <!-- Emitting Color -->
+                <fieldset class="border rounded bg-white p-3 my-3">
+
+                    <legend class="w-auto fs-6 text-muted"><i data-feather="sun" class="me-2" ></i>Emitting Color</legend>
+                    <hr>
+
+                    <div class="d-flex justify-content-between ps-1 pe-4 active-colors">
+                       
+                        <div class="d-flex flex-column">
+
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="activeColors" id="rbRed" checked>
+                                <label class="form-check-label" for="rbRed">Red</label>
+                            </div>
+
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="activeColors" id="rbGreen">
+                                <label class="form-check-label" for="rbGreen">Green</label>
+                            </div>
+
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="activeColors" id="rbBlue">
+                                <label class="form-check-label" for="rbBlue">Blue</label>
+                            </div>
+
+                        </div>
+
+                        <div class="d-flex flex-column">
+                            
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="activeColors" id="rbYellow">
+                                <label class="form-check-label" for="rbYellow">Yellow</label>
+                            </div>
+
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="activeColors" id="rbOrange">
+                                <label class="form-check-label" for="rbOrange">Orange</label>
+                            </div>
+
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="activeColors" id="rbWhite">
+                                <label class="form-check-label" for="rbWhite">White</label>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </fieldset>
+
+                
+                <!-- Alphanumeric Characters -->
+                <fieldset class="border rounded bg-gradient p-3 my-3 pb-4">
+                    <legend class="w-auto fs-6 text-muted"><i data-feather="coffee" class="me-2"></i>Preset Alphanumeric</legend>
+                    <hr>
+                    
+                    <div id="presetButtons" class="d-flex flex-wrap justify-content-center gap-3">
+                        <a class="button"><span data-alphanumeric="1">1</span></a>
+                        <a class="button"><span data-alphanumeric="2">2</span></a>
+                        <a class="button"><span data-alphanumeric="3">3</span></a>
+                        <a class="button"><span data-alphanumeric="4">4</span></a>
+                        <a class="button"><span data-alphanumeric="5">5</span></a>
+                        <a class="button"><span data-alphanumeric="6">6</span></a>
+                        <a class="button"><span data-alphanumeric="7">7</span></a>
+                        <a class="button"><span data-alphanumeric="8">8</span></a>
+                        <a class="button"><span data-alphanumeric="9">9</span></a>
+                        <a class="button"><span data-alphanumeric="0">0</span></a>
+                        <a class="button"><span data-alphanumeric="A">A</span></a>
+                        <a class="button"><span data-alphanumeric="b">b</span></a>
+                        <a class="button"><span data-alphanumeric="C">C</span></a>
+                        <a class="button"><span data-alphanumeric="d">d</span></a>
+                        <a class="button"><span data-alphanumeric="E">E</span></a>
+                        <a class="button"><span data-alphanumeric="F">F</span></a>
+                    </div>
+
+                    <!--
+                    <div class="d-flex  flex-wrap justify-content-center gap-3 mt-3">
+                        <a class="button" style="width: 43%;" id="btnTurnOff"><span>Turn OFF</span></a>
+                    </div>
+                    -->
+
+                </fieldset>
+
+            </div>
+        
+        </div>
+
+    </div>
+
+
+    <!-- Binary code -->
+    <input type="text" class="d-none" id="txtBinaryCode">
+
+    <!-- Notifications -->
+    <div class="toast-container position-fixed bottom-0 end-0 p-3">
+
+        <div id="toastMessage" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+
+            <div class="toast-header">
+                <i data-feather="clipboard" class="me-1" ></i>
+                <strong id="message-title" class="me-auto"></strong>
+                <small>1 second ago</small>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+
+            <div class="toast-body">
+                <p id="message-body"></p>
+            </div>
+            
+        </div>
+        
+    </div>
+
+    <!-- Button to toggle sidebar (Only visible on mobile) -->
+    <button class="menu d-md-none" id="toggle-btn" aria-label="Main Menu">     
+        <svg width="50" height="50" viewBox="0 0 100 100">
+          <path class="line line1" d="M 20,29.000046 H 80.000231 C 80.000231,29.000046 94.498839,28.817352 94.532987,66.711331 94.543142,77.980673 90.966081,
+            81.670246 85.259173,81.668997 79.552261,81.667751 75.000211,74.999942 75.000211,74.999942 L 25.000021,25.000058" />
+          <path class="line line2" d="M 20,50 H 80" />
+          <path class="line line3" d="M 20,70.999954 H 80.000231 C 80.000231,70.999954 94.498839,71.182648 94.532987,33.288669 94.543142,22.019327 90.966081,
+            18.329754 85.259173,18.331003 79.552261,18.332249 75.000211,25.000058 75.000211,25.000058 L 25.000021,74.999942" />
+        </svg>
+    </button>
+
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script src="assets/js/script.js"></script>
+
+</body>
+</html>
