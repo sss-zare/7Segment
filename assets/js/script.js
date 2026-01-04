@@ -74,7 +74,7 @@ const surfaceColors = {
 
 // Available inactive segment colors (when a segment is turn off)
 const inactiveColors = {
-    LIGHTGRAY: "#9b9b9b",
+    LIGHTGRAY: "#918d7d",
     CITRON: "#d9ce5a",
     BLACK: "#2c2e32"
 }
