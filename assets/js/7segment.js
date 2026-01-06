@@ -1,25 +1,24 @@
 /*
-
     ╔═  ══  ══  ══  ══  ══  ══  ══  ══  ══  ══  ══  ══  ══  ══  ══  ══  ══  ══  ══  ══  ══  ═╗
-           ______             _____   ______    _____   __  __   ______   _   _   _______    
-    ║     |____  |           / ____| |  ____|  / ____| |  \/  | |  ____| | \ | | |__   __|   ║
-              / /   ______  | (___   | |__    | |  __  | \  / | | |__    |  \| |    | |      
-    ║        / /   |______|  \___ \  |  __|   | | |_ | | |\/| | |  __|   | . ` |    | |      ║
-            / /              ____) | | |____  | |__| | | |  | | | |____  | |\  |    | |      
-    ║      /_/              |_____/  |______|  \_____| |_|  |_| |______| |_| \_|    |_|      ║                               
-                              _____                              __                          
-    ║                        / ___/ ___   ___  _  __ ___   ____ / /_ ___   ____              ║
-                            / /__  / _ \ / _ \| |/ // -_) / __// __// _ \ / __/             
-    ║                       \___/  \___//_//_/|___/ \__/ /_/   \__/ \___//_/                 ║
-
+               ______     _____   ______    _____   __  __   ______   _   _   _______    
+    ║         |____  |   / ____| |  ____|  / ____| |  \/  | |  ____| | \ | | |__   __|       ║
+                  / /   | (___   | |__    | |  __  | \  / | | |__    |  \| |    | |      
+    ║            / /     \___ \  |  __|   | | |_ | | |\/| | |  __|   | . ` |    | |          ║
+                / /      ____) | | |____  | |__| | | |  | | | |____  | |\  |    | |       
+    ║          /_/      |_____/  |______|  \_____| |_|  |_| |______| |_| \_|    |_|          ║                               
+                       
+    ║            __   __   __   ___     __   ___       ___  __       ___  __   __            ║
+                /  ` /  \ |  \ |__     / _` |__  |\ | |__  |__)  /\   |  /  \ |__) 
+    ║           \__, \__/ |__/ |___    \__> |___ | \| |___ |  \ /~~\  |  \__/ |  \           ║    
+                                                                                    
     ╚═  ══  ══  ══  ══  ══  ══  ══  ══  ══  ══  ══  ══  ══  ══  ══  ══  ══  ══  ══  ══  ══  ═╝
-     01010011 01000001 01001010 01000001 01000100 00100000 01011010 01000001 01010010 01000101
+    01010011 01000001 01001010 01000001 01000100 00100000 01011010 01000001 01010010 01000101
 
- * @file script.js
+ * @file 7segment.js
  * @description A tool for converting numbers, alphabets, and special characters into binary, 
  *              hexadecimal, and decimal codes for seven-segment displays.
  * @author [Sajad Zare]
- * @license MIT (with humanitarian clause)
+ * @license MIT
  * @version 1.0.0
  * @created [04:30 AM 2/23/2025]
  * @updated [10:42 AM 2/25/2025]
@@ -74,7 +73,7 @@ const surfaceColors = {
 
 // Available inactive segment colors (when a segment is turn off)
 const inactiveColors = {
-    LIGHTGRAY: "#918d7d",
+    LIGHTGRAY: "#9b988e",
     CITRON: "#d9ce5a",
     BLACK: "#2c2e32"
 }
@@ -83,8 +82,8 @@ const inactiveColors = {
 // Available emitting segment colors (when a segment is turn on)
 const activeColors = {
     RED: "#ef233c",
-    GREEN: "#06d6a0",
-    BLUE: "#00bbf9",
+    GREEN: "#72bd19", /* #06d6a0 */
+    BLUE: "#009efb", /* #009efb */
     YELLOW: "#ffbe0b",
     ORANGE: "#fb5607",
     WHITE: "#ffffff"
@@ -252,8 +251,8 @@ initializeMainElements();
 segments.forEach((segment, index) => {
     segment.addEventListener("click", function () {
         toggleSegment(segment);
-        let inewIndex = bitOrder === bitOrders.LSB_FIRST ? index : 7 - index;
-        setFocusOnBit(inewIndex);
+        let newIndex = bitOrder === bitOrders.LSB_FIRST ? index : 7 - index;
+        setFocusOnBit(newIndex);
     });
 });
 

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>7-Segment Display</title>
+    <title>7-Segment </title>
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
@@ -24,7 +24,7 @@
                         <!-- 7-Segment Display Header -->
                         <div class="row pt-3">
                             <div class="col-12">
-                                <label><i data-feather="chevrons-right" class="me-1"></i>7-Segment Display</label>
+                                <label><i data-feather="chevrons-right" class="me-1 text-icon"></i>7-Segment Display</label>
                             </div>
                         </div>
 
@@ -33,16 +33,25 @@
 
                             <div class="col-12 justify-content-center">
 
-                                <svg xmlns="http://www.w3.org/2000/svg" id="sevenSegmentDisplay" x="0" y="0" viewBox="0 0 35.76 53.97" class="svg-display">
+                                <svg xmlns="http://www.w3.org/2000/svg" id="sevenSegmentDisplay" x="0" y="0" viewBox="0 0 35.76 53.97">
+                                    <defs>
+                                        <filter id="strong-inner">
+                                            <feFlood flood-color="#000000"/>
+                                            <feComposite operator="out" in2="SourceGraphic" />
+                                            <feMorphology operator="dilate" radius="0.00"/>
+                                            <feGaussianBlur stdDeviation="0.4" />
+                                            <feComposite operator="atop" in2="SourceGraphic"/>
+                                        </filter>
+                                    </defs>
                                     <path id="surface" class="surface" fill="#2c2e32" d="M.06.06h35.65v53.86H.06z" />
-                                    <path id="segment_a" class="segment" fill="#9b9b9b" data-state="off" data-value="0" d="M12.36 10.97H26.1l.58-4.11H12.94z" />
-                                    <path id="segment_b" class="segment" fill="#9b9b9b" data-state="off" data-value="0" d="M28.63 26.56 31.1 9.04c.15-1.05-.58-2.01-1.63-2.16-.09-.01-.18-.02-.27-.02h-1.66l-2.46 17.49 1.77 2.21h1.78z" />
-                                    <path id="segment_c" class="segment" fill="#9b9b9b" data-state="off" data-value="0" d="M26.81 27.41h1.71l-2.54 18.05c-.13.94-.94 1.65-1.89 1.65h-2.2l2.45-17.4 2.47-2.3z" />
-                                    <path id="segment_d" class="segment" fill="#9b9b9b" data-state="off" data-value="0" d="M7.86 43H21.6l-.58 4.11H7.28z" />
-                                    <path id="segment_e" class="segment" fill="#9b9b9b" data-state="off" data-value="0" d="M6.42 47.11H4.76c-.09 0-.18-.01-.27-.02a1.908 1.908 0 0 1-1.63-2.16l2.46-17.52h1.79l1.77 2.21-2.46 17.49z" />
-                                    <path id="segment_f" class="segment" fill="#9b9b9b" data-state="off" data-value="0" d="M5.45 26.56 7.99 8.51c.13-.94.94-1.65 1.89-1.65h2.2l-2.45 17.4-2.48 2.3h-1.7z" />
-                                    <path id="segment_g" class="segment" fill="#9b9b9b" data-state="off" data-value="0" d="m7.9 27.03 2.27-2.1h14.28l1.61 2.01-2.26 2.1H9.51z" />
-                                    <path id="segment_dp" class="segment" fill="#9b9b9b" data-state="off" data-value="0" d="M28.03 45.06c0-1.14.92-2.06 2.06-2.06s2.06.92 2.06 2.06-.92 2.06-2.06 2.06-2.06-.93-2.06-2.06z" />
+                                    <path id="segment_a" class="segment" fill="#9b9b9b" filter="url(#strong-inner)" data-state="off" data-value="0" d="M12.36 10.97H26.1l.58-4.11H12.94z" />
+                                    <path id="segment_b" class="segment" fill="#9b9b9b" filter="url(#strong-inner)" data-state="off" data-value="0" d="M28.63 26.56 31.1 9.04c.15-1.05-.58-2.01-1.63-2.16-.09-.01-.18-.02-.27-.02h-1.66l-2.46 17.49 1.77 2.21h1.78z" />
+                                    <path id="segment_c" class="segment" fill="#9b9b9b" filter="url(#strong-inner)" data-state="off" data-value="0" d="M26.81 27.41h1.71l-2.54 18.05c-.13.94-.94 1.65-1.89 1.65h-2.2l2.45-17.4 2.47-2.3z" />
+                                    <path id="segment_d" class="segment" fill="#9b9b9b" filter="url(#strong-inner)" data-state="off" data-value="0" d="M7.86 43H21.6l-.58 4.11H7.28z" />
+                                    <path id="segment_e" class="segment" fill="#9b9b9b" filter="url(#strong-inner)" data-state="off" data-value="0" d="M6.42 47.11H4.76c-.09 0-.18-.01-.27-.02a1.908 1.908 0 0 1-1.63-2.16l2.46-17.52h1.79l1.77 2.21-2.46 17.49z" />
+                                    <path id="segment_f" class="segment" fill="#9b9b9b" filter="url(#strong-inner)" data-state="off" data-value="0" d="M5.45 26.56 7.99 8.51c.13-.94.94-1.65 1.89-1.65h2.2l-2.45 17.4-2.48 2.3h-1.7z" />
+                                    <path id="segment_g" class="segment" fill="#9b9b9b" filter="url(#strong-inner)" data-state="off" data-value="0" d="m7.9 27.03 2.27-2.1h14.28l1.61 2.01-2.26 2.1H9.51z" />
+                                    <path id="segment_dp" class="segment" fill="#9b9b9b" filter="url(#strong-inner)" data-state="off" data-value="0" d="M28.03 45.06c0-1.14.92-2.06 2.06-2.06s2.06.92 2.06 2.06-.92 2.06-2.06 2.06-2.06-.93-2.06-2.06z" />
                                 </svg>
 
                             </div>
@@ -64,7 +73,7 @@
                         <!-- Internal Circuit Diagram Header -->
                         <div class="row pt-3">
                             <div class="col-12">
-                                <label><i data-feather="chevrons-right" class="me-1"></i>Internal Circuit Diagram</label>
+                                <label><i data-feather="chevrons-right" class="me-1 text-icon"></i>Internal Circuit Diagram</label>
                             </div>
                         </div>
 
@@ -74,7 +83,7 @@
 
                             <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-11 col-xxl-10 mx-auto justify-content-center">
         
-                                <svg xmlns="http://www.w3.org/2000/svg" id="internalCircuitDiagram" x="0px" y="0px" viewBox="0 0 466 258" class="svg-circuit">
+                                <svg xmlns="http://www.w3.org/2000/svg" id="internalCircuitDiagram" x="0px" y="0px" viewBox="0 0 466 258">
 
                                     <g>
                                         <circle class="led-light" cx="23" cy="133.69" r="22" data-state="off" opacity="0"/>
@@ -148,7 +157,7 @@
                                     <path id="net_dp" class="net" fill="#2c2e32" d="M24.5,192.94v-39.25h-3v39.25c-2.02,0.64-3.5,2.51-3.5,4.75c0,2.76,2.24,5,5,5s5-2.24,5-5
                                         C28,195.45,26.52,193.58,24.5,192.94z M23,200.19c-1.38,0-2.5-1.12-2.5-2.5c0-1.38,1.12-2.5,2.5-2.5s2.5,1.12,2.5,2.5 C25.5,199.07,24.38,200.19,23,200.19z"/>
                                         
-                                    <path id="net_common" class="net net-common" fill="#2c2e32" d="M444,73.69h-2.5h-57h-3h-57h-3h-57h-3h-27V36.43c2.02-0.64,3.5-2.51,3.5-4.75c0-2.76-2.24-5-5-5s-5,2.24-5,5
+                                    <path id="net_common" class="net" fill="#2c2e32" d="M444,73.69h-2.5h-57h-3h-57h-3h-57h-3h-27V36.43c2.02-0.64,3.5-2.51,3.5-4.75c0-2.76-2.24-5-5-5s-5,2.24-5,5
                                         c0,2.24,1.48,4.11,3.5,4.75v37.25h-27h-3h-57h-3h-57h-3h-57h-3v3v37h3v-37h57v37h3v-37h57v37h3v-37h57v37h3v-37h57v37h3v-37h57v37h3
                                         v-37h57v37h3v-37h57v37h3v-40H444z M230.5,31.69c0-1.38,1.12-2.5,2.5-2.5s2.5,1.12,2.5,2.5c0,1.38-1.12,2.5-2.5,2.5 S230.5,33.07,230.5,31.69z"/>
   
@@ -161,8 +170,8 @@
                                     <text transform="matrix(1 0 0 1 383 226)" class="led-label" fill="#2c2e32" text-anchor="middle" data-state="off"></text>
                                     <text transform="matrix(1 0 0 1 443 226)" class="led-label" fill="#2c2e32" text-anchor="middle" data-state="off"></text>
 
-                                    <text transform="matrix(1 0 0 1 233 21)" class="led-common" fill="#2c2e32" text-anchor="middle" id="lblCommonLabel">GND</text>
-                                    <text transform="matrix(1 0 0 1 320 19)" class="led-common small" fill="#2c2e32" text-anchor="middle" id="lblCommonType">Common Cathode</text>
+                                    <text transform="matrix(1 0 0 1 233 21)" class="led-label" fill="#2c2e32" text-anchor="middle" id="lblCommonLabel">GND</text>
+                                    <text transform="matrix(1 0 0 1 350 19)" class="led-label small" fill="#2c2e32" text-anchor="middle" id="lblCommonType">Common Cathode</text>
                                 </svg>
         
                             </div>
@@ -173,7 +182,7 @@
                         <!-- Binary Code Header -->
                         <div class="row">
                             <div class="col-12">
-                                <label><i data-feather="chevrons-right" class="me-1"></i>Binary Code</label>
+                                <label><i data-feather="chevrons-right" class="me-1 text-icon"></i>Binary Code</label>
                             </div>
                         </div>
 
@@ -185,36 +194,38 @@
         
                                 <div class="d-flex justify-content-between">
                                     <div class="binary-wrapper">
-                                        <label for="txtBit7" class="form-label-custom text-muted">MSB</label> <!-- MSB -->
-                                        <input type="text" class="form-control text-center binary-input" id="txtBit0" readonly/>
+                                        <label for="txtBit7" class="form-label-binary">128</label>
+                                        <input type="text" class="form-control text-center binary-input text-input" id="txtBit0" readonly/>
+                                        <label for="txtBit7" class="form-label-binary"><small>MSB</small></label> <!-- MSB -->
                                     </div>
                                     <div class="binary-wrapper">
-                                        <label for="txtBit6" class="form-label-custom"></label>
-                                        <input type="text" class="form-control text-center binary-input" id="txtBit1" readonly/>
+                                        <label for="txtBit6" class="form-label-binary">64</label>
+                                        <input type="text" class="form-control text-center binary-input text-input" id="txtBit1" readonly/>
                                     </div>
                                     <div class="binary-wrapper">
-                                        <label for="txtBit5" class="form-label-custom"></label>
-                                        <input type="text" class="form-control text-center binary-input" id="txtBit2" readonly/>
+                                        <label for="txtBit5" class="form-label-binary">32</label>
+                                        <input type="text" class="form-control text-center binary-input text-input" id="txtBit2" readonly/>
                                     </div>
                                     <div class="binary-wrapper">
-                                        <label for="txtBit4" class="form-label-custom"></label>
-                                        <input type="text" class="form-control text-center binary-input" id="txtBit3" readonly/>
+                                        <label for="txtBit4" class="form-label-binary">16</label>
+                                        <input type="text" class="form-control text-center binary-input text-input" id="txtBit3" readonly/>
                                     </div>
                                     <div class="binary-wrapper">
-                                        <label for="txtBit3" class="form-label-custom"></label>
-                                        <input type="text" class="form-control text-center binary-input" id="txtBit4" readonly/>
+                                        <label for="txtBit3" class="form-label-binary">8</label>
+                                        <input type="text" class="form-control text-center binary-input text-input" id="txtBit4" readonly/>
                                     </div>
                                     <div class="binary-wrapper">
-                                        <label for="txtBit2" class="form-label-custom"></label>
-                                        <input type="text" class="form-control text-center binary-input" id="txtBit5" readonly/>
+                                        <label for="txtBit2" class="form-label-binary">4</label>
+                                        <input type="text" class="form-control text-center binary-input text-input" id="txtBit5" readonly/>
                                     </div>
                                     <div class="binary-wrapper">
-                                        <label for="txtBit1" class="form-label-custom"></label>
-                                        <input type="text" class="form-control text-center binary-input" id="txtBit6" readonly/>
+                                        <label for="txtBit1" class="form-label-binary">2</label>
+                                        <input type="text" class="form-control text-center binary-input text-input" id="txtBit6" readonly/>
                                     </div>
                                     <div class="binary-wrapper">
-                                        <label for="txtBit0" class="form-label-custom ms-1 text-muted">LSB</label> <!-- LSB -->
-                                        <input type="text" class="form-control text-center binary-input" id="txtBit7" readonly/>
+                                        <label for="txtBit0" class="form-label-binary">1</label>
+                                        <input type="text" class="form-control text-center binary-input text-input" id="txtBit7" readonly/>
+                                        <label for="txtBit0" class="form-label-binary ms-2"><small>LSB</small></label> <!-- LSB -->
                                     </div>
                                 </div>
         
@@ -226,7 +237,7 @@
                         <!-- Hexadecimal and Decimal Code Header -->
                         <div class="row">
                             <div class="col-12">
-                                <label><i data-feather="chevrons-right" class="me-1"></i>Hexadecimal and Decimal Code</label>
+                                <label><i data-feather="chevrons-right" class="me-1 text-icon"></i>Hexadecimal and Decimal Code</label>
                             </div>
                         </div>
 
@@ -237,12 +248,12 @@
                                 
                                 <div class="input-group mb-3 d-flex justify-content-between pb-2">
                                     <span class="input-group-text">Hex Code &nbsp; &nbsp; &nbsp;</span>
-                                    <input type="text" class="form-control text-center hex-input" id="txtHexCode" readonly/>
+                                    <input type="text" class="form-control text-center hex-input text-input" id="txtHexCode" readonly/>
                                 </div>
 
                                 <div class="input-group mb-3 d-flex justify-content-between">
                                     <span class="input-group-text">Decimal Code</span>
-                                    <input type="text" class="form-control text-center hex-input" id="txtDecimalCode" readonly/>
+                                    <input type="text" class="form-control text-center hex-input text-input" id="txtDecimalCode" readonly/>
                                 </div>
                                   
                             </div>
@@ -251,27 +262,310 @@
                         <!-- Copy Code Header -->
                         <!-- <div class="row pb-3">
                             <div class="col-12">
-                                <label><i data-feather="chevrons-right" class="me-1"></i>Copy code to clipboard</label>
+                                <label><i data-feather="chevrons-right" class="me-1 text-icon"></i>Copy code to clipboard</label>
                             </div>
                         </div> -->
 
 
                         <!-- Copy Code Design -->
                         <div class="row pb-4">
-
                             <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-11 col-xxl-10 mx-auto px-xxl-3">
-        
                                 <div class="d-flex justify-content-center gap-2">
-                                    
-                                    <button type="button" class="btn btn-sm btn-dark w-100" id="btnBinaryCode"><i class="me-1" style="width: 20px; height: 20px;" data-feather="copy"></i>Copy Binary Code</button>
-                                    <button type="button" class="btn btn-sm btn-dark w-100" id="btnHexCode"><i class="me-1" style="width: 20px; height: 20px;" data-feather="copy"></i>Copy Hex Code</button>
-                                    <button type="button" class="btn btn-sm btn-dark w-100" id="btnDecimalCode"><i class="me-1" style="width: 20px; height: 20px;" data-feather="copy"></i>Copy Decimal Code</button>
-                                    
+                                    <button type="button" class="btn btn-sm btn-dark w-100" id="btnBinaryCode"><i class="me-1 text-icon" style="width: 20px; height: 20px;" data-feather="copy"></i>Copy Binary Code</button>
+                                    <button type="button" class="btn btn-sm btn-dark w-100" id="btnHexCode"><i class="me-1 text-icon" style="width: 20px; height: 20px;" data-feather="copy"></i>Copy Hex Code</button>
+                                    <button type="button" class="btn btn-sm btn-dark w-100" id="btnDecimalCode"><i class="me-1 text-icon" style="width: 20px; height: 20px;" data-feather="copy"></i>Copy Decimal Code</button>
                                 </div>
-
                             </div>
-        
                         </div>
+
+                        <!-- Coming Soon Alert -->
+                        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                            <i data-feather="info" class="me-2 text-icon" ></i>
+                            <strong>Coming Soon:</strong> I will add 14- and 16-segment displays as well.
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+
+
+                        <!-- <div class="row p-5">
+
+                                <table class="table table-sm table-dark table-striped text-center small table-bordered">
+                                    <tbody>
+                                        <caption><u>C</u>ommon <u>C</u>athode Display Code Table</caption>
+                                        <tr>
+                                            <td>&nbsp;</td>
+                                            <td colspan="8"><b>SEGMENTS</b></td>
+                                            <td><b>BINARY</b></td>
+                                            <td><b>HEX</b></td>
+                                            <td><b>DECIMAL</b></td>
+                                        </tr>
+                                        <tr>
+                                            <td>#</td>
+                                            <td>A</td>
+                                            <td>B</td>
+                                            <td>C</td>
+                                            <td>D</td>
+                                            <td>E</td>
+                                            <td>F</td>
+                                            <td>G</td>
+                                            <td>DP</td>
+                                            <td>Value</td>
+                                            <td>Value</td>
+                                            <td>Value</td>
+                                        </tr>
+                                        <tr>
+                                            <td>0</td>
+                                            <td>1</td>
+                                            <td>1</td>
+                                            <td>1</td>
+                                            <td>1</td>
+                                            <td>1</td>
+                                            <td>1</td>
+                                            <td>0</td>
+                                            <td>0</td>
+                                            <td>B11111100</td>
+                                            <td>0xFC</td>
+                                            <td>252</td>
+                                        </tr>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>0</td>
+                                            <td>1</td>
+                                            <td>1</td>
+                                            <td>0</td>
+                                            <td>0</td>
+                                            <td>0</td>
+                                            <td>0</td>
+                                            <td>0</td>
+                                            <td>B01100000</td>
+                                            <td>0x60</td>
+                                            <td>96</td>
+                                        </tr>
+                                        <tr>
+                                            <td>2</td>
+                                            <td>1</td>
+                                            <td>1</td>
+                                            <td>0</td>
+                                            <td>1</td>
+                                            <td>1</td>
+                                            <td>0</td>
+                                            <td>1</td>
+                                            <td>0</td>
+                                            <td>B11011010</td>
+                                            <td>0xDA</td>
+                                            <td>218</td>
+                                        </tr>
+                                        <tr>
+                                            <td>3</td>
+                                            <td>1</td>
+                                            <td>1</td>
+                                            <td>1</td>
+                                            <td>1</td>
+                                            <td>0</td>
+                                            <td>0</td>
+                                            <td>1</td>
+                                            <td>0</td>
+                                            <td>B11110010</td>
+                                            <td>0xF2</td>
+                                            <td>242</td>
+                                        </tr>
+                                        <tr>
+                                            <td>4</td>
+                                            <td>0</td>
+                                            <td>1</td>
+                                            <td>1</td>
+                                            <td>0</td>
+                                            <td>0</td>
+                                            <td>1</td>
+                                            <td>1</td>
+                                            <td>0</td>
+                                            <td>B01100110</td>
+                                            <td>0x66</td>
+                                            <td>102</td>
+                                        </tr>
+                                        <tr>
+                                            <td>5</td>
+                                            <td>1</td>
+                                            <td>0</td>
+                                            <td>1</td>
+                                            <td>1</td>
+                                            <td>0</td>
+                                            <td>1</td>
+                                            <td>1</td>
+                                            <td>0</td>
+                                            <td>B10110110</td>
+                                            <td>0xB6</td>
+                                            <td>182</td>
+                                        </tr>
+                                        <tr>
+                                            <td>6</td>
+                                            <td>1</td>
+                                            <td>0</td>
+                                            <td>1</td>
+                                            <td>1</td>
+                                            <td>1</td>
+                                            <td>1</td>
+                                            <td>1</td>
+                                            <td>0</td>
+                                            <td>B10111110</td>
+                                            <td>0xBE</td>
+                                            <td>190</td>
+                                        </tr>
+                                        <tr>
+                                            <td>7</td>
+                                            <td>1</td>
+                                            <td>1</td>
+                                            <td>1</td>
+                                            <td>0</td>
+                                            <td>0</td>
+                                            <td>0</td>
+                                            <td>0</td>
+                                            <td>0</td>
+                                            <td>B11100000</td>
+                                            <td>0xE0</td>
+                                            <td>224</td>
+                                        </tr>
+                                        <tr>
+                                            <td>8</td>
+                                            <td>1</td>
+                                            <td>1</td>
+                                            <td>1</td>
+                                            <td>1</td>
+                                            <td>1</td>
+                                            <td>1</td>
+                                            <td>1</td>
+                                            <td>0</td>
+                                            <td>B11111110</td>
+                                            <td>0xFE</td>
+                                            <td>254</td>
+                                        </tr>
+                                        <tr>
+                                            <td>9</td>
+                                            <td>1</td>
+                                            <td>1</td>
+                                            <td>1</td>
+                                            <td>1</td>
+                                            <td>0</td>
+                                            <td>1</td>
+                                            <td>1</td>
+                                            <td>0</td>
+                                            <td>B11110110</td>
+                                            <td>0xF6</td>
+                                            <td>246</td>
+                                        </tr>
+                                        <tr>
+                                            <td>A</td>
+                                            <td>1</td>
+                                            <td>1</td>
+                                            <td>1</td>
+                                            <td>0</td>
+                                            <td>1</td>
+                                            <td>1</td>
+                                            <td>1</td>
+                                            <td>0</td>
+                                            <td>B11101110</td>
+                                            <td>0xEE</td>
+                                            <td>238</td>
+                                        </tr>
+                                        <tr>
+                                            <td>b</td>
+                                            <td>0</td>
+                                            <td>0</td>
+                                            <td>1</td>
+                                            <td>1</td>
+                                            <td>1</td>
+                                            <td>1</td>
+                                            <td>1</td>
+                                            <td>0</td>
+                                            <td>B00111110</td>
+                                            <td>0x3E</td>
+                                            <td>62</td>
+                                        </tr>
+                                        <tr>
+                                            <td>C</td>
+                                            <td>1</td>
+                                            <td>0</td>
+                                            <td>0</td>
+                                            <td>1</td>
+                                            <td>1</td>
+                                            <td>1</td>
+                                            <td>0</td>
+                                            <td>0</td>
+                                            <td>B10011100</td>
+                                            <td>0x9C</td>
+                                            <td>156</td>
+                                        </tr>
+                                        <tr>
+                                            <td>d</td>
+                                            <td>0</td>
+                                            <td>1</td>
+                                            <td>1</td>
+                                            <td>1</td>
+                                            <td>1</td>
+                                            <td>0</td>
+                                            <td>1</td>
+                                            <td>0</td>
+                                            <td>B01111010</td>
+                                            <td>0x7A</td>
+                                            <td>122</td>
+                                        </tr>
+                                        <tr>
+                                            <td>E</td>
+                                            <td>1</td>
+                                            <td>0</td>
+                                            <td>0</td>
+                                            <td>1</td>
+                                            <td>1</td>
+                                            <td>1</td>
+                                            <td>1</td>
+                                            <td>0</td>
+                                            <td>B10011110</td>
+                                            <td>0x9E</td>
+                                            <td>158</td>
+                                        </tr>
+                                        <tr>
+                                            <td>F</td>
+                                            <td>1</td>
+                                            <td>0</td>
+                                            <td>0</td>
+                                            <td>0</td>
+                                            <td>1</td>
+                                            <td>1</td>
+                                            <td>1</td>
+                                            <td>0</td>
+                                            <td>B10001110</td>
+                                            <td>0x8E</td>
+                                            <td>142</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                        </div> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
 
                     </div>
 
@@ -279,16 +573,13 @@
     
             </div>
 
-        
-
-        
             <!-- Sidebar -->
             <div class="col-12 col-sm-4 col-md-4 col-lg-3 col-xl-3 col-xxl-3" id="sidebar">
 
                 <!-- 7-Segment Display Common Type -->
                 <fieldset class="border rounded bg-white p-3 my-3">
                     
-                    <legend class="w-auto fs-6 text-muted"><i data-feather="cpu" class="me-2" ></i>Display Common Type</legend>
+                    <legend class="w-auto fs-6 text-muted"><i data-feather="cpu" class="me-2 text-icon" ></i>Display Common Type</legend>
                     <hr>
 
                     <div class="list-group list-group-radio d-grid gap-2">
@@ -316,7 +607,7 @@
                 <!-- Bit Order (Shift Register) -->
                 <fieldset class="border rounded bg-white p-3 my-3">
 
-                    <legend class="w-auto fs-6 text-muted"><i data-feather="bold" class="me-2" ></i>Bit Order (Shift Register)</legend>
+                    <legend class="w-auto fs-6 text-muted"><i data-feather="bold" class="me-2 text-icon" ></i>Bit Order (Shift Register)</legend>
                     <hr>
 
                     <div class="d-flex justify-content-between ps-1 pe-4 active-colors">
@@ -346,7 +637,7 @@
                 <!-- Emitting Color -->
                 <fieldset class="border rounded bg-white p-3 my-3">
 
-                    <legend class="w-auto fs-6 text-muted"><i data-feather="sun" class="me-2" ></i>Emitting Color</legend>
+                    <legend class="w-auto fs-6 text-muted"><i data-feather="sun" class="me-2 text-icon" ></i>Emitting Color</legend>
                     <hr>
 
                     <div class="d-flex justify-content-between ps-1 pe-4 active-colors">
@@ -396,7 +687,7 @@
                 
                 <!-- Alphanumeric Characters -->
                 <fieldset class="border rounded bg-gradient p-3 my-3 pb-4">
-                    <legend class="w-auto fs-6 text-muted"><i data-feather="coffee" class="me-2"></i>Preset Alphanumeric</legend>
+                    <legend class="w-auto fs-6 text-muted"><i data-feather="coffee" class="me-2 text-icon"></i>Preset Alphanumeric</legend>
                     <hr>
                     
                     <div id="presetButtons" class="d-flex flex-wrap justify-content-center gap-3">
@@ -430,9 +721,10 @@
         
         </div>
 
+        <!-- Footer -->
         <div class="row">
             <footer class="col-12 text-center">
-                <a class="link-offset-2" href="https://github.com/sss-zare/7Segment" target="_blank">Check out the code on GitHub!</a>
+                <a class="link-offset-1" href="https://github.com/sss-zare/7Segment" target="_blank"><small>Check out the code on GitHub!</small></a>
             </footer>
         </div>
 
@@ -447,9 +739,9 @@
         <div id="toastMessage" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
 
             <div class="toast-header">
-                <i data-feather="clipboard" class="me-1" ></i>
+                <i data-feather="clipboard" class="me-1 text-icon" ></i>
                 <strong id="message-title" class="me-auto"></strong>
-                <small>1 second ago</small>
+                <small><!-- 1 second ago --></small>
                 <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
             </div>
 
@@ -474,7 +766,7 @@
 
     <script src="assets/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
-    <script src="assets/js/script.js"></script>
+    <script src="assets/js/7segment.js"></script>
 
 </body>
 </html>
