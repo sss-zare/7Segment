@@ -73,7 +73,7 @@ const surfaceColors = {
 
 // Available inactive segment colors (when a segment is turn off)
 const inactiveColors = {
-    LIGHTGRAY: "#9b988e",
+    LIGHTGRAY: "#aba6a2", /* #aaa095, #9b988e , #aba6a2 */
     CITRON: "#d9ce5a",
     BLACK: "#2c2e32"
 }
@@ -81,11 +81,11 @@ const inactiveColors = {
 
 // Available emitting segment colors (when a segment is turn on)
 const activeColors = {
-    RED: "#ef233c",
-    GREEN: "#72bd19", /* #06d6a0 */
+    RED: "#f8364e", /* #ef233c, #e6001c */
+    GREEN: "#ace808", /* #060707ff , #10b981 */
     BLUE: "#009efb", /* #009efb */
     YELLOW: "#ffbe0b",
-    ORANGE: "#fb5607",
+    ORANGE: "#f37112", /* #fb5607 */
     WHITE: "#ffffff"
 };
 
@@ -163,45 +163,45 @@ const segmentNames = ["A", "B", "C", "D", "E", "F", "G", "DP"];
 
 // Binary map for Common Cathode 7-segment display (LSBFIRST)
 const commonCathodeLookup = {
-    "0" : "11111100", // 0
-    "1" : "01100000", // 1
-    "2" : "11011010", // 2
-    "3" : "11110010", // 3
-    "4" : "01100110", // 4
-    "5" : "10110110", // 5
-    "6" : "10111110", // 6
-    "7" : "11100000", // 7
-    "8" : "11111110", // 8
-    "9" : "11110110", // 9
-    "A" : "11101110", // A
-    "b" : "00111110", // b
-    "C" : "10011100", // C
-    "d" : "01111010", // d
-    "E" : "10011110", // E
-    "F" : "10001110", // F
-     "" : "00000000"  // Turn off all segments 
+    "0": "11111100", // 0
+    "1": "01100000", // 1
+    "2": "11011010", // 2
+    "3": "11110010", // 3
+    "4": "01100110", // 4
+    "5": "10110110", // 5
+    "6": "10111110", // 6
+    "7": "11100000", // 7
+    "8": "11111110", // 8
+    "9": "11110110", // 9
+    "A": "11101110", // A
+    "b": "00111110", // b
+    "C": "10011100", // C
+    "d": "01111010", // d
+    "E": "10011110", // E
+    "F": "10001110", // F
+    "": "00000000"  // Turn off all segments 
 }
 
 
 // Binary map for Common Anode 7-segment display (LSBFIRST)
 const commonAnodeLookup = {
-    "0" : "00000011", // 0
-    "1" : "10011111", // 1
-    "2" : "00100101", // 2
-    "3" : "00001101", // 3
-    "4" : "10011001", // 4
-    "5" : "01001001", // 5
-    "6" : "01000001", // 6
-    "7" : "00011111", // 7
-    "8" : "00000001", // 8
-    "9" : "00001001", // 9
-    "A" : "00010001", // A
-    "b" : "11000001", // b
-    "C" : "01100011", // C
-    "d" : "10000101", // d
-    "E" : "01100001", // E
-    "F" : "01110001", // F
-     "" : "11111111"  // Turn off all segments
+    "0": "00000011", // 0
+    "1": "10011111", // 1
+    "2": "00100101", // 2
+    "3": "00001101", // 3
+    "4": "10011001", // 4
+    "5": "01001001", // 5
+    "6": "01000001", // 6
+    "7": "00011111", // 7
+    "8": "00000001", // 8
+    "9": "00001001", // 9
+    "A": "00010001", // A
+    "b": "11000001", // b
+    "C": "01100011", // C
+    "d": "10000101", // d
+    "E": "01100001", // E
+    "F": "01110001", // F
+    "": "11111111"  // Turn off all segments
 };
 
 
@@ -212,6 +212,7 @@ const leds = document.querySelectorAll(".led");
 const ledLights = document.querySelectorAll(".led-light");
 const ledLabels = document.querySelectorAll(".led-label");
 const nets = document.querySelectorAll(".net");
+const templateFilter = document.querySelector("#seg-filter");
 
 const commonTypeRadios = document.querySelectorAll('input[name="commonTypes"]');
 const bitOrderRadios = document.querySelectorAll('input[name="bitOrders"]');
@@ -254,6 +255,12 @@ segments.forEach((segment, index) => {
         let newIndex = bitOrder === bitOrders.LSB_FIRST ? index : 7 - index;
         setFocusOnBit(newIndex);
     });
+
+    // Assign a unique cloned filter to the segment
+    const filterClone = templateFilter.cloneNode(true);
+    filterClone.id = `filter-${segment.id}`;
+    segment.parentNode.querySelector("defs").appendChild(filterClone);
+    segment.setAttribute("filter", `url(#${filterClone.id})`);
 });
 
 
@@ -277,10 +284,10 @@ commonTypeRadios.forEach(radio => {
 
             // Common Cathode or Common Anode label change
             document.getElementById('lblCommonType')
-            .textContent = commonType.replace(/(Common)/, '$1 ');
-                
+                .textContent = commonType.replace(/(Common)/, '$1 ');
+
             document.getElementById('lblCommonLabel')
-            .textContent = this.value === commonTypes.COMMON_CATHODE ? "GND" : "VCC"; 
+                .textContent = this.value === commonTypes.COMMON_CATHODE ? "GND" : "VCC";
         }
     });
 });
@@ -307,14 +314,31 @@ activeColorRadios.forEach(radio => {
 });
 
 
-// Event listener for the alphanumeric buttons (preset alphanumeric)
-presetButtons.addEventListener('click', (e) => {
-    const button = e.target;
-    if (button.tagName === 'SPAN') {
+// // Event listener for the alphanumeric buttons (preset alphanumeric)
+// presetButtons.addEventListener('click', (e) => {
+//     const button = e.target;
+//     if (button.tagName === 'SPAN') {
+//         const alphanumeric = button.getAttribute('data-alphanumeric');
+//         displayAlphanumeric(alphanumeric);
+//     }
+// });
+
+
+// Event listener for Handle preset button clicks and
+// prevent re-triggering the same alphanumeric value (preset alphanumeric)
+presetButtons.addEventListener('click', (() => {
+    let lastAlphanumeric;
+    return (e) => {
+        const button = e.target;
+        if (button.tagName !== 'SPAN') return;
+
         const alphanumeric = button.getAttribute('data-alphanumeric');
+        if (alphanumeric === lastAlphanumeric) return;
+
+        lastAlphanumeric = alphanumeric;
         displayAlphanumeric(alphanumeric);
-    }
-});
+    };
+})());
 
 
 // Attach event listeners to both copy buttons
@@ -346,7 +370,7 @@ const observer = new MutationObserver(mutations => {
                 updateCodes();
 
                 /* Uncomment the following code for monitor log. */
-                logSegmentStatus(segment);
+                //logSegmentStatus(segment);
             }
         }
     });
@@ -537,7 +561,7 @@ function setBitOrder(order) {
 
 // Function to  turns off all active LEDs, updating their state, color, and related elements.
 function reverseActiveLeds() {
-    
+
     // Loop through all LEDs and set them to an inactive state
     leds.forEach(led => {
         ["ledLight", "ledLabel"].forEach(type => {
@@ -550,13 +574,13 @@ function reverseActiveLeds() {
         led.setAttribute("fill", inactiveLedColor);
 
         getRelatedElement(led, "ledLight")
-        .setAttribute("opacity", 0);
+            .setAttribute("opacity", 0);
     });
 
     // Ensure segments is an iterable array before filtering
     Array.from(segments)
-    .filter(segment => segment.currentState === "on") // Select active segments
-    .forEach(updateRelatedElements); // Update their related elements
+        .filter(segment => segment.currentState === "on") // Select active segments
+        .forEach(updateRelatedElements); // Update their related elements
 }
 
 
@@ -570,6 +594,39 @@ function toggleSegment(segment) {
     segment.dataset.state = newState;
     segment.dataset.value = newValue;
     segment.setAttribute("fill", newColor);
+
+    animateSegmentFlood(segment, newState === "on" ? "#000000" : "#ffffff");
+}
+
+// Animate the flood-color of the segments
+function animateSegmentFlood(segment, targetColor) {
+    const filterId = segment.getAttribute("filter").replace("url(#", "").replace(")", "");
+    const flood = document.querySelector(`#${filterId} feFlood`);
+    if (!flood) return;
+
+    // Get current flood color as RGB number (0 or 255)
+    const currentFlood = flood.getAttribute("flood-color");
+    const currentVal = currentFlood === "#ffffff" || currentFlood === "rgb(255,255,255)" ? 255 : 0;
+    const targetVal = targetColor === "#ffffff" ? 255 : 0;
+
+    // If the current value equals target, do nothing
+    if (currentVal === targetVal) return;
+
+    const startTime = performance.now();
+
+    const duration = 250;
+
+    function animate(time) {
+        const elapsed = time - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+
+        const val = Math.round(currentVal + (targetVal - currentVal) * progress);
+        flood.setAttribute("flood-color", `rgb(${val},${val},${val})`);
+
+        if (progress < 1) requestAnimationFrame(animate);
+    }
+
+    requestAnimationFrame(animate);
 }
 
 
@@ -613,9 +670,9 @@ function setActiveSegmentColor(color) {
 
 // Function to returns the key for a color value from activeColors or inactiveColors, or "unknown" if not found
 function getColorKey(colorMap, colorValue) {
-    return Object.keys(colorMap).find(key => colorMap[key] === colorValue) || 
-           Object.keys(inactiveColors).find(key => inactiveColors[key] === colorValue) || 
-           "unknown";
+    return Object.keys(colorMap).find(key => colorMap[key] === colorValue) ||
+        Object.keys(inactiveColors).find(key => inactiveColors[key] === colorValue) ||
+        "unknown";
 }
 
 
@@ -636,7 +693,7 @@ function initializeSegmentAttributes(segment) {
         currentColor: getColorKey(activeColors, segment.getAttribute("fill")),
         activeColor: getColorKey(activeColors, activeColor),
         inactiveColor: getColorKey(inactiveColors, inactiveSegmentColor),
-        relatedLedId:  getRelatedElement(segment, "led")?.id,
+        relatedLedId: getRelatedElement(segment, "led")?.id,
         relatedLedLightId: getRelatedElement(segment, "ledLight")?.id,
         relatedLedLabelId: getRelatedElement(segment, "ledLabel")?.id
     });
@@ -645,9 +702,10 @@ function initializeSegmentAttributes(segment) {
 
 // Function to convert an alphanumeric character to binary and update the 7-segment display
 function displayAlphanumeric(alphanumeric) {
-    
-    const binaryCode = commonType === commonTypes.COMMON_CATHODE 
-        ? commonCathodeLookup[alphanumeric] 
+
+    beep();
+    const binaryCode = commonType === commonTypes.COMMON_CATHODE
+        ? commonCathodeLookup[alphanumeric]
         : commonAnodeLookup[alphanumeric];
 
     const activeBit = commonType === commonTypes.COMMON_CATHODE ? "1" : "0";
@@ -660,6 +718,7 @@ function displayAlphanumeric(alphanumeric) {
             value: isActive ? activeBit : inactiveBit
         });
         segment.setAttribute("fill", isActive ? activeColor : inactiveSegmentColor);
+        animateSegmentFlood(segment, isActive ? "#000000" : "#ffffff");
     });
 }
 
@@ -707,6 +766,29 @@ function copyCodeToClipboard(event) {
 }
 
 
+// Function to plays a security-style beep (keypad sound) for fun :)
+const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+function beep() {
+    const osc = audioCtx.createOscillator();
+    const gain = audioCtx.createGain();
+
+    osc.type = 'square'; // security beep
+    osc.frequency.setValueAtTime(2000, audioCtx.currentTime);
+
+    gain.gain.setValueAtTime(0.1, audioCtx.currentTime);
+    gain.gain.exponentialRampToValueAtTime(
+        0.001,
+        audioCtx.currentTime + 0.12
+    );
+
+    osc.connect(gain);
+    gain.connect(audioCtx.destination);
+
+    osc.start();
+    osc.stop(audioCtx.currentTime + 0.12);
+}
+
+
 // Function to log the current status of the segment element to the console.
 function logSegmentStatus(segment) {
     console.log({
@@ -715,7 +797,7 @@ function logSegmentStatus(segment) {
         currentState: segment.currentState,
         currentValue: segment.currentValue,
         currentColor: segment.currentColor,
-        activeColor : segment.activeColor,
+        activeColor: segment.activeColor,
         inactiveColor: segment.inactiveColor,
         relatedLedId: segment.relatedLedId,
         relatedLedLightId: segment.relatedLedLightId,
